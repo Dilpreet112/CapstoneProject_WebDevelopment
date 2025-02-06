@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const cors = require("cors");
 require("dotenv").config();
@@ -8,15 +7,6 @@ const app = express();
 
 // Connect to MongoDB
 connectDB();
-
-mongoose
-  .connect(uri)
-  .then(() =>
-    app.listen(3001, () => {
-      console.log("Server started on port 3001");
-    })
-  )
-  .catch((err) => console.log(err));
 
 // Middleware
 app.use(cors());
